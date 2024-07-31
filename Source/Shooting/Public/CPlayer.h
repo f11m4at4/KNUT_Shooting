@@ -31,4 +31,24 @@ public:
 	class UStaticMeshComponent* BodyMesh;
 	UPROPERTY(VisibleAnywhere)
 	class UStaticMeshComponent* SpaceShipMesh;
+	UPROPERTY(VisibleAnywhere)
+	class USceneComponent* FirePosition;
+
+public:
+	// 필요속성 : 좌우, 상하 방향, 이동속도
+	float h = 0;
+	float v = 0;
+	float speed = 500;
+
+	// 좌우입력 처리 함수
+	void Horizontal(float value);
+	// 상하입력 처리 함수
+	void Vertical(float value);
+
+	// 발사버튼입력 처리 함수
+	void Fire();
+
+	// 필요속성 : 총알공장
+	UPROPERTY(EditAnywhere, Category="Bullet")
+	TSubclassOf<class ACBullet> bulletFactory;
 };
