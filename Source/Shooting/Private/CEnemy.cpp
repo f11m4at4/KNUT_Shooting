@@ -78,6 +78,10 @@ void ACEnemy::Tick(float DeltaTime)
 
 void ACEnemy::OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	// 폭발효과 재생
+	FTransform trans;
+	trans.SetLocation(GetActorLocation());
+	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), bombFactory, trans, true);
 	// 너도 죽고
 	OtherActor->Destroy();
 	// 나도 죽자

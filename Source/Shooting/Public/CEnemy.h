@@ -38,4 +38,9 @@ public:
 
 	UFUNCTION()
 	void OnComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	// 적이 충돌했을 때 폭발효과를 재생하고 싶다.
+	// 폭발효과 공장
+	UPROPERTY(EditAnywhere, Category = "MySettings")
+	class UParticleSystem* bombFactory;
 };
